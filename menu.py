@@ -236,13 +236,17 @@ for order_item in order_list:
     num_item_spaces2 = 7 - len(str(order_item["Price"]))
     num_item_spaces3 = 10 - len(str(menu_item_quantity))
     num_item_spaces4 = 10 - len(str(menu_item_totl)) 
-   
+    if (num_item_spaces4) < 0:
+        num_item_spaces4 = 6
     # 9. Create space strings
     item_spaces = " " * num_item_spaces
     item_spaces2 = " " * num_item_spaces2
     item_spaces3 = " " * num_item_spaces3
+    if int(menu_item_quantity) > 9:
+        num_item_spaces4 -= 1    
     item_spaces4 = " " * num_item_spaces4
-    
+  
+
     # 10. Print the item name, price, and quantity
     print(f"{menu_item_name}{item_spaces}  |{item_spaces2}${menu_item_price}|{item_spaces3}{menu_item_quantity}|{item_spaces4}${menu_item_totl:.2f}")
     
